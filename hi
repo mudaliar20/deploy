@@ -1,0 +1,52 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"networking.istio.io/v1alpha3","kind":"Gateway","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"spring-boot-rest-consumer-seed"},"name":"service-gateway","namespace":"spring-boot-rest-consumer-seed"},"spec":{"selector":{"istio":"ingressgateway"},"servers":[{"hosts":["spring-boot-rest-consumer.apps.dev.ocp.s6ef5y.com"],"port":{"name":"http","number":80,"protocol":"HTTP"}},{"hosts":["spring-boot-rest-consumer.apps.dev.ocp.s6ef5y.com"],"port":{"name":"https-443","number":443,"protocol":"HTTPS"},"tls":{"credentialName":"tls-certificate","mode":"SIMPLE"}}]}}
+  resourceVersion: '13102519'
+  name: service-gateway
+  uid: 21ab51dc-1f4c-4990-8fe9-d099ddc1b4f9
+  creationTimestamp: '2023-04-27T11:42:01Z'
+  generation: 1
+  managedFields:
+    - apiVersion: networking.istio.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          .: {}
+          'f:selector':
+            .: {}
+            'f:istio': {}
+          'f:servers': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-04-27T11:42:01Z'
+  namespace: spring-boot-rest-consumer-seed
+  labels:
+    app.kubernetes.io/instance: spring-boot-rest-consumer-seed
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - hosts:
+        - spring-boot-rest-consumer.apps.dev.ocp.s6ef5y.com
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+      tls:
+        httpsRedirect: true
+    - hosts:
+        - spring-boot-rest-consumer.apps.dev.ocp.s6ef5y.com
+      port:
+        name: https-443
+        number: 443
+        protocol: HTTP
